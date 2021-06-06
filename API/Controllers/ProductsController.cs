@@ -23,7 +23,7 @@ namespace API.Controllers
         public IActionResult GetProduct(int id)
         {
             var product=context.Products.Find(id);
-            return Ok(product);
+            return Ok(product); 
         }
     }
 }
