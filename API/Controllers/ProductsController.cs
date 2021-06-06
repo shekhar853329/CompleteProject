@@ -1,4 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,21 +12,22 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly StoreContext context;
-        public ProductsController(StoreContext context)
+        private readonly IProductRepository repos;
+
+        public ProductsController(IProductRepository repos)
         {
-            this.context = context;
+            this.repos = repos;
         }
         [HttpGet]
-        public IActionResult GetProducts()
+        public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts()
         {
-            var products=context.Products.ToList();
+            var products = await repos.GetProductsAsync();
             return Ok(products);
         }
         [HttpGet("{id}")]
-        public IActionResult GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product=context.Products.Find(id);
+            var product = await repos.GetProductByIdAsync(id);
             return Ok(product); 
         }
     }
