@@ -118,3 +118,5 @@ Infrastructure/obj/Debug/net5.0/Infrastructure.GeneratedMSBuildEditorConfig.edit
 Infrastructure/obj/Debug/net5.0/Infrastructure.genruntimeconfig.cache
 Infrastructure/obj/Debug/net5.0/Infrastructure.pdb
 Infrastructure/obj/Debug/net5.0/ref/Infrastructure.dll
+API/bin/Debug/net5.0/AutoMapper.dll
+API/bin/Debug/net5.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
